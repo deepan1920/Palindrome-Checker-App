@@ -1,6 +1,6 @@
 import java.util.*;
 import java.lang.String;
-public class PalindromeCheckerApp {
+public class PalindromeCheckerApp{
     public static void main(String[] args) {
         //UC1
         System.out.println("Welcome to Palindrome Checker Management System");
@@ -35,19 +35,34 @@ public class PalindromeCheckerApp {
 //        }
 
         //UC4
-        char[] chars= str.toCharArray();
-        int start=0;
-        int end= chars.length -1;
-        boolean isPalindrome= true;
-        while(start<end){
-            if(chars[start]!=chars[end]){
-                isPalindrome=false;
-                break;
-            }
-            start++; end--;
-        }
+//        char[] chars= str.toCharArray();
+//        int start=0;
+//        int end= chars.length -1;
+//        boolean isPalindrome= true;
+//        while(start<end){
+//            if(chars[start]!=chars[end]){
+//                isPalindrome=false;
+//                break;
+//            }
+//            start++; end--;
+//        }
+//
+//        if(isPalindrome){
+//            System.out.println("Is it a palindrome?: True");
+//        }else{
+//            System.out.println("Is it a palindrome?: False");
+//        }
 
-        if(isPalindrome){
+        //UC5
+        Stack<Character> charstack= new Stack<>();
+        for(char c:str.toCharArray()){
+            charstack.push(c);
+        }
+        String rev=new String("");
+        while (!charstack.isEmpty()) {
+            rev += charstack.pop();
+        }
+        if(str.equals(rev)){
             System.out.println("Is it a palindrome?: True");
         }else{
             System.out.println("Is it a palindrome?: False");
