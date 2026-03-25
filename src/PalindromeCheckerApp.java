@@ -1,13 +1,13 @@
 import java.util.*;
 import java.lang.String;
-public class PalindromeCheckerApp{
+public class PalindromeCheckerApp {
     public static void main(String[] args) {
         //UC1
         System.out.println("Welcome to Palindrome Checker Management System");
         System.out.println("Version ; 1.0");
         System.out.println("System initialized successfully!");
 
-        String str = new String("radar");
+        String str = new String("noon");
         //String isPalindrome = new String("True");
         int j = str.length();
         // UC2
@@ -54,15 +54,40 @@ public class PalindromeCheckerApp{
 //        }
 
         //UC5
+//        Stack<Character> charstack= new Stack<>();
+//        for(char c:str.toCharArray()){
+//            charstack.push(c);
+//        }
+//        String rev=new String("");
+//        while (!charstack.isEmpty()) {
+//            rev += charstack.pop();
+//        }
+//        if(str.equals(rev)){
+//            System.out.println("Is it a palindrome?: True");
+//        }else{
+//            System.out.println("Is it a palindrome?: False");
+//        }
+
+        //UC6
+        boolean isPalindrome= true;
+        Queue<Character> charqueue = new LinkedList<>();
         Stack<Character> charstack= new Stack<>();
         for(char c:str.toCharArray()){
             charstack.push(c);
         }
-        String rev=new String("");
-        while (!charstack.isEmpty()) {
-            rev += charstack.pop();
+        for(char c:str.toCharArray()){
+            charqueue.offer(c);
         }
-        if(str.equals(rev)){
+        while(!charstack.isEmpty() && !charqueue.isEmpty()){
+            char stackelement=charstack.pop();
+            char queueelement=charqueue.poll();
+            if(stackelement !=(queueelement)){
+                isPalindrome=false;
+                break;
+            }
+        }
+
+        if(isPalindrome){
             System.out.println("Is it a palindrome?: True");
         }else{
             System.out.println("Is it a palindrome?: False");
